@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort Algorithm Visualization</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bar {
+      display: inline-block;
+      margin: 0 1px;
+      background-color: teal;
+      transition: height 0.1s ease;
+    }
+    canvas {
+      display: none; /* Canvas wird versteckt, ist nur zum Zeichnen */
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gray-100">
+  <h1 class="text-4xl font-bold mb-8">Sort Algorithm Visualization</h1>
+
+  <select id="algorithm" class="mb-4 p-2 border border-gray-300 rounded" onchange="updateDescription()">
+    <option value="bubble">Bubble Sort</option>
+    <option value="quick">Quick Sort</option>
+    <option value="insertion">Insertion Sort</option>
+    <option value="selection">Selection Sort</option>
+    <option value="merge">Merge Sort</option>
+  </select>
+
+  <label for="speed" class="mb-4">Geschwindigkeit: <span id="speed-value">50</span> ms</label>
+  <input id="speed" type="range" min="10" max="500" value="50" class="mb-4">
+
+  <label for="barCount" class="mb-4">Anzahl der Balken: <span id="bar-count-value">30</span></label>
+  <input id="barCount" type="range" min="10" max="100" value="30" class="mb-4">
+
+  <div id="bars-container" class="flex items-end justify-center space-x-1"></div>
+  
+  <button onclick="startSort()" class="mt-6 px-4 py-2 bg-blue-500 text-white rounded">Start Sorting</button>
+  
+  <button id="download" class="mt-6 px-4 py-2 bg-green-500 text-white rounded">Download Animation</button>
+
+  <p id="algorithm-description" class="mt-4 text-lg text-gray-700"></p>
+
+  <canvas id="canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
